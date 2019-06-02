@@ -1,0 +1,26 @@
+# General
+
+CXX      		:= g++
+TARGET   		:= named-chess
+
+# Build
+
+# Debug
+#CXXFLAGS 	    := -g -O0 -std=c++17 -Wall
+# Release
+CXXFLAGS 		:= -O2 -std=c++17 -Wall
+
+# Dependencies
+
+LINKS    		:= -lSDL2main -lSDL2 -lSDL2_image -lSDL2_net -lSDL2_ttf
+
+all: $(TARGET) clean
+
+$(TARGET): $(patsubst src/%.cpp, obj/%.o, $(wildcard src/*.cpp))
+	$(CXX) $(CXXFLAGS) -o bin/$(TARGET) $(wildcard obj/*.o) $(LINKS)
+
+obj/%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+clean:
+	rm -fr obj/*.o
