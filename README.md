@@ -2,6 +2,10 @@
 
 # Simple cross platform Chess game made using C++ and SDL
 
+<h3>Download link for those who are only interested in playing the game</h3>
+
+[Download through Google Drive](https://drive.google.com/file/d/1S45OLeN-Fm39xb0WZXfzDPJxdZjIgF9P/view?usp=sharing)
+
 <h3>Controls</h3>
 
 | Control           | Function                        |
@@ -16,7 +20,7 @@
 
 <h3>Sources</h3>
 
-- I made the board myself using [GIMP] (https://www.gimp.org/)  
+- I made the board myself using [GIMP](https://www.gimp.org/)  
 - [Chess figures](https://opengameart.org/content/colorful-chess-pieces)  
 - [Movement rules source (in German)](https://www.brettspielnetz.de/spielregeln/schach.php)
 
