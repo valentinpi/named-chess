@@ -730,5 +730,71 @@ pre {
     border: none;
   }
 }
-</style><title>README</title></head><body><article class="markdown-body"><p>t</p>
+</style><title>README</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-named-chess" class="anchor" href="#named-chess" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>named-chess</h1>
+<h1>
+<a id="user-content-simple-cross-platform-chess-game-made-using-c-and-sdl" class="anchor" href="#simple-cross-platform-chess-game-made-using-c-and-sdl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple cross platform Chess game made using C++ and SDL</h1>
+<h3>
+<a id="user-content-download-link-for-those-who-are-only-interested-in-playing-the-game" class="anchor" href="#download-link-for-those-who-are-only-interested-in-playing-the-game" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download link for those who are only interested in playing the game</h3>
+<p><a href="https://drive.google.com/file/d/1S45OLeN-Fm39xb0WZXfzDPJxdZjIgF9P/view?usp=sharing" rel="nofollow">Download through Google Drive</a></p>
+<h3>
+<a id="user-content-controls" class="anchor" href="#controls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Controls</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left mouse button</td>
+<td>Select, unselect and move piece</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-not-implemented" class="anchor" href="#not-implemented" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Not implemented</h3>
+<ul>
+<li>Special moves: Rochade, En passant</li>
+<li>UI elements</li>
+<li>Pawns, which reached the last row, will always be changed to a King</li>
+</ul>
+<h3>
+<a id="user-content-sources" class="anchor" href="#sources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sources</h3>
+<ul>
+<li>I made the board myself using <a href="https://www.gimp.org/" rel="nofollow">GIMP</a>
+</li>
+<li><a href="https://opengameart.org/content/colorful-chess-pieces" rel="nofollow">Chess figures</a></li>
+<li><a href="https://www.brettspielnetz.de/spielregeln/schach.php" rel="nofollow">Movement rules source (in German)</a></li>
+</ul>
+<h3>
+<a id="user-content-code-metrics" class="anchor" href="#code-metrics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code metrics</h3>
+<pre>
+D:\Dev\named-chess&gt;cloc --exclude-dir=bin,dep,obj,res,README.md,README.html,"Improvised changelog.md","Improvised changelog.html" .
+      17 text files.
+      17 unique files.
+       6 files ignored.
+
+github.com/AlDanial/cloc v 1.76  T=0.50 s (30.0 files/s, 3520.0 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+C++                              8            209             32           1225
+C/C++ Header                     6             44             25            218
+make                             1              1              0              6
+-------------------------------------------------------------------------------
+SUM:                            15            254             57           1449
+-------------------------------------------------------------------------------
+</pre>
+<h3>
+<a id="user-content-code-guide" class="anchor" href="#code-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code Guide</h3>
+<ul>
+<li>Use standardized C++</li>
+<li>SDL libraries use raw pointers since it's a C library</li>
+<li>Every line of code is limited to 80 characters</li>
+<li>Extensively use comments, as long as they're necessary</li>
+<li>Every file should end with an empty line</li>
+</ul>
+<p>Von Valentin Pickel</p>
 </article></body></html>
