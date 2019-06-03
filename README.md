@@ -2,6 +2,10 @@
 
 # Simple cross platform Chess game made using C++ and SDL
 
+<h1>Announcement</h1>
+
+As of 03.06.2019, the project isn't actively developed by myself anymore. I decided to start learning new stuff, because I don't seem to get around my own architecture. The code just seems too nested for my taste. I gladly accept good contributions, if some are made. I might make some contributions if I have an idea or am willing to restructure the class hierarchy, if needed.
+
 <h3>Download link for those who are only interested in playing the game</h3>
 
 [Download through Google Drive](https://drive.google.com/file/d/1S45OLeN-Fm39xb0WZXfzDPJxdZjIgF9P/view?usp=sharing)
