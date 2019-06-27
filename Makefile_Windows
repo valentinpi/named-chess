@@ -14,8 +14,6 @@ CXXFLAGS 		:= -g -O0 -std=c++17 -Wall
 
 # Dependencies
 
-INCLUDES 		:= -Idep/include
-LIBS     		:= -Ldep/lib
 LINKS    		:= -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_net -lSDL2_ttf
 STATIC_LINKS	:= -static-libgcc -static-libstdc++
 
@@ -23,10 +21,10 @@ all: $(TARGET) clean
 
 $(TARGET): $(patsubst src/%.cpp, obj/%.o, $(wildcard src/*.cpp))
 	windres -o obj/named-chess.res -O coff res/named-chess.rc
-	$(CXX) $(CXXFLAGS) -o bin/$(TARGET) $(wildcard obj/*.o) obj/named-chess.res $(LIBS) $(LINKS) $(STATIC_LINKS)
+	$(CXX) $(CXXFLAGS) -o bin/$(TARGET) $(wildcard obj/*.o) obj/named-chess.res $(LINKS) $(STATIC_LINKS)
 
 obj/%.o: src/%.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $< $(INCLUDES)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	del /Q obj\*.o
