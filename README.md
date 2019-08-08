@@ -6,6 +6,8 @@
 
 As of 03.06.2019, the project isn't actively developed by myself anymore. I decided to start learning new stuff, because I don't seem to get around my own architecture. The code just seems too nested for my taste. I gladly accept good contributions, if some are made. I might make some contributions if I have an idea or am willing to restructure the class hierarchy, if needed.
 
+The current makefile only supports building on Windows using MinGW-w64 (the DLLs in the bin directory are from the i686-8.1.0-release-posix-dwarf-rt_v6-rev0 build). There's a Linux makefile too, which can be used by specifying it to make using the -f flag.
+
 <h3>Download link for those who are only interested in playing the game</h3>
 
 [Download through Google Drive](https://drive.google.com/file/d/1S45OLeN-Fm39xb0WZXfzDPJxdZjIgF9P/view?usp=sharing)
