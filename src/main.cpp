@@ -4,7 +4,7 @@ int main(int argc, char *argv[])
 {
     Game game(720, 720);
 
-    if (!game.init())
+    if (!game.is_initialized())
         return EXIT_FAILURE;
 
     game.run();

@@ -9,16 +9,12 @@
 class Player
 {
 public:
-    Player(
-        BoardMetrics board_metrics, 
-        std::vector<Piece> *pieces, 
-        PieceColor color);
     Player() = default;
+    Player(BoardMetrics board_metrics, std::vector<Piece> *pieces, PieceColor color);
     virtual ~Player() = default;
 
-    Piece 
-        *king_piece = nullptr, 
-        *hovered_piece = nullptr,
+    Piece *king_piece = nullptr, 
+        *hovered_piece = nullptr, 
         *selected_piece = nullptr; 
     std::vector<BoardPosition> highlighted_positions;
 
@@ -54,24 +50,20 @@ protected:
     std::vector<Piece> *pieces = nullptr;
     PieceColor color;
 
-    bool ai = false,
-        turn_over = true,
-        king_threatened = false,
+    bool ai = false, 
+        turn_over = true, 
+        king_threatened = false, 
         lost = false;
     uint32_t turn_count = 0;
 
     void end_turn();
 
     // Movement
-    bool add_position(
-        std::vector<BoardPosition> &positions, PieceColor color, 
-        const int32_t col, const int32_t row);
-    BoardPositionState check_position(
-        PieceColor color, BoardPosition position);
+    bool add_position(std::vector<BoardPosition> &positions, PieceColor color, const int32_t col, const int32_t row);
+    BoardPositionState check_position(PieceColor color, BoardPosition position);
     Piece* get_piece(BoardPosition position);
     Piece* get_piece(PieceColor color, PieceType type);
-    std::vector<BoardPosition> get_legal_positions(
-        Piece &piece, bool movable = true);
+    std::vector<BoardPosition> get_legal_positions(Piece &piece, bool movable = true);
     bool is_piece_threatened(const Piece &piece);
     void move_piece(PieceMove move);
 };

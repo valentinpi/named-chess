@@ -1,9 +1,6 @@
 #include "AIPlayer.hpp"
 
-AIPlayer::AIPlayer(
-    BoardMetrics board_metrics, 
-    std::vector<Piece> *pieces, 
-    PieceColor color)
+AIPlayer::AIPlayer(BoardMetrics board_metrics, std::vector<Piece> *pieces, PieceColor color)
 {
     this->board_metrics = board_metrics;
     this->color = color;
@@ -23,14 +20,19 @@ AIPlayer::AIPlayer(
         minimizer_color = White;
 }
 
+AIPlayer::~AIPlayer()
+{
+    average_planning_time /= turn_count;
+    std::cout << "Average planning time: " << average_planning_time << " seconds" << std::endl;
+}
+
 void AIPlayer::update(const std::vector<SDL_Event> events)
 {
     if (!delay_finished)
     {
         auto t2 = std::chrono::steady_clock::now();
 
-        if (std::chrono::duration_cast<std::chrono::milliseconds>
-            (t2 - t1).count() > 250)
+        if (std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count() > 250)
             delay_finished = true;
         else
             return;
@@ -45,18 +47,16 @@ void AIPlayer::update(const std::vector<SDL_Event> events)
 
         plan_moves_max(planning_depth);
 
-        std::cout 
-            << bench_nodes_checked << " nodes checked" << "\n" 
+        std::cout << bench_nodes_checked << " nodes checked" << "\n" 
             << bench_nodes_cut << " nodes cut" << std::endl;
         bench_nodes_checked = 0;
         bench_nodes_cut = 0;
 
         bench_t2 = std::chrono::steady_clock::now();
-        auto seconds_passed = 
-            std::chrono::duration_cast<std::chrono::milliseconds>
-                (bench_t2 - bench_t1).count() / 1000.0;
-        std::cout 
-            << seconds_passed << " seconds planning time" << std::endl;
+        float seconds_passed = 
+            std::chrono::duration_cast<std::chrono::milliseconds>(bench_t2 - bench_t1).count() / 1000.0f;
+        std::cout << seconds_passed << " seconds planning time" << std::endl;
+        average_planning_time += seconds_passed;
 
         selected_piece = planned_move.first;
         highlighted_positions.push_back(planned_move.second);
@@ -87,8 +87,7 @@ int32_t AIPlayer::plan_moves_max(
         if (piece.destroyed || piece.color != maximizer_color)
             continue;
 
-        std::vector<BoardPosition> possible_positions = 
-            get_legal_positions(piece);
+        std::vector<BoardPosition> possible_positions = get_legal_positions(piece);
 
         for (auto &possible_position : possible_positions)
         {
@@ -110,8 +109,7 @@ int32_t AIPlayer::plan_moves_max(
 
     std::sort(
         moves.begin(), moves.end(),
-        [] (const std::pair<PieceMove, int32_t>& first, 
-            const std::pair<PieceMove, int32_t>& second) {
+        [] (const std::pair<PieceMove, int32_t>& first, const std::pair<PieceMove, int32_t>& second) {
             return first.second > second.second;
         });
 
@@ -141,8 +139,7 @@ int32_t AIPlayer::plan_moves_max(
         piece->moved = true;
 
         if (planning_depth > 0)
-            move_value = 
-                plan_moves_min(planning_depth - 1, highest_value, beta);
+            move_value = plan_moves_min(planning_depth - 1, highest_value, beta);
         else
             move_value = evaluate_board();
 
@@ -187,8 +184,7 @@ int32_t AIPlayer::plan_moves_min(
         if (piece.destroyed || piece.color != minimizer_color)
             continue;
 
-        std::vector<BoardPosition> possible_positions = 
-            get_legal_positions(piece);
+        std::vector<BoardPosition> possible_positions = get_legal_positions(piece);
 
         for (auto &possible_position : possible_positions)
         {
@@ -240,8 +236,7 @@ int32_t AIPlayer::plan_moves_min(
         piece->moved = true;
 
         if (planning_depth > 0)
-            move_value = 
-                plan_moves_max(planning_depth - 1, alpha, lowest_value);
+            move_value = plan_moves_max(planning_depth - 1, alpha, lowest_value);
         else
             move_value = -evaluate_board();
 

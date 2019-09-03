@@ -1,9 +1,6 @@
 #include "Player.hpp"
 
-Player::Player(
-    BoardMetrics board_metrics, 
-    std::vector<Piece> *pieces, 
-    PieceColor color)
+Player::Player(BoardMetrics board_metrics, std::vector<Piece> *pieces, PieceColor color)
 {
     this->board_metrics = board_metrics;
     this->pieces = pieces;
@@ -50,9 +47,7 @@ void Player::end_turn()
     highlighted_positions.clear();
 }
 
-bool Player::add_position(
-    std::vector<BoardPosition> &positions, PieceColor color, 
-    const int32_t col, const int32_t row)
+bool Player::add_position(std::vector<BoardPosition> &positions, PieceColor color, const int32_t col, const int32_t row)
 {
     bool empty = false;
     BoardPosition new_position = { col, row };
@@ -76,8 +71,7 @@ bool Player::add_position(
     return empty;
 }
 
-BoardPositionState Player::check_position(
-    PieceColor color, BoardPosition position)
+BoardPositionState Player::check_position(PieceColor color, BoardPosition position)
 {
     // Bounds check
     if (position.col < 0 || position.col > 7 || 
@@ -124,8 +118,7 @@ Piece* Player::get_piece(PieceColor color, PieceType type)
     return nullptr;
 }
 
-std::vector<BoardPosition> Player::get_legal_positions(
-    Piece &piece, bool movable)
+std::vector<BoardPosition> Player::get_legal_positions(Piece &piece, bool movable)
 {
     std::vector<BoardPosition> results;
 
@@ -151,8 +144,7 @@ std::vector<BoardPosition> Player::get_legal_positions(
         }};
 
         for (auto &neighboring_position : neighboring_positions)
-            if (check_position(piece.color, neighboring_position) != 
-                Inaccessable)
+            if (check_position(piece.color, neighboring_position) != Inaccessable)
                 results.push_back(neighboring_position);
     }
     // Horizontal and vertical
@@ -177,24 +169,16 @@ std::vector<BoardPosition> Player::get_legal_positions(
         piece.type == Bishop)
     {
         for (int32_t col = piece.position.col - 1; col >= 0; col--)
-            if (!add_position(
-                    results, piece.color, 
-                    col, piece.position.row - (piece.position.col - col)))
+            if (!add_position(results, piece.color, col, piece.position.row - (piece.position.col - col)))
                 break;
         for (int32_t col = piece.position.col - 1; col >= 0; col--)
-            if (!add_position(
-                    results, piece.color, 
-                    col, piece.position.row + (piece.position.col - col)))
+            if (!add_position(results, piece.color, col, piece.position.row + (piece.position.col - col)))
                 break;
         for (int32_t col = piece.position.col + 1; col <= 7; col++)
-            if (!add_position(
-                    results, piece.color, 
-                    col, piece.position.row + (piece.position.col - col)))
+            if (!add_position(results, piece.color, col, piece.position.row + (piece.position.col - col)))
                 break;
         for (int32_t col = piece.position.col + 1; col <= 7; col++)
-            if (!add_position(
-                    results, piece.color, 
-                    col, piece.position.row + (piece.position.col - col)))
+            if (!add_position(results, piece.color, col, piece.position.row + (piece.position.col - col)))
                 break;
     }
     // Knight and Pawn
@@ -212,29 +196,23 @@ std::vector<BoardPosition> Player::get_legal_positions(
         }};
 
         for (auto &neighboring_position : neighboring_positions)
-            if (check_position(piece.color, neighboring_position) != 
-                Inaccessable)
+            if (check_position(piece.color, neighboring_position) != Inaccessable)
                 results.push_back(neighboring_position);
     }
     if (piece.type == Pawn)
     {
         std::array<BoardPosition, 4> pawn_positions = {{
-            {   piece.position.col    , 
-                piece.position.row + pawn_forward_move_direction     },
-            {   piece.position.col    , 
-                piece.position.row + pawn_forward_move_direction * 2 },
-            {   piece.position.col - 1, 
-                piece.position.row + pawn_forward_move_direction     },
-            {   piece.position.col + 1, 
-                piece.position.row + pawn_forward_move_direction     }
+            {   piece.position.col    , piece.position.row + pawn_forward_move_direction     },
+            {   piece.position.col    , piece.position.row + pawn_forward_move_direction * 2 },
+            {   piece.position.col - 1, piece.position.row + pawn_forward_move_direction     },
+            {   piece.position.col + 1, piece.position.row + pawn_forward_move_direction     }
         }};
 
         if (check_position(piece.color, pawn_positions[0]) == Empty)
         {
             results.push_back(pawn_positions[0]);
             
-            if (check_position(piece.color, pawn_positions[1]) == Empty && 
-                !piece.moved)
+            if (check_position(piece.color, pawn_positions[1]) == Empty && !piece.moved)
                 results.push_back(pawn_positions[1]);
         }
         if (check_position(piece.color, pawn_positions[2]) == Enemy_Piece)
@@ -279,14 +257,11 @@ bool Player::is_piece_threatened(const Piece &piece)
         if (_piece.destroyed || _piece.color == piece.color)
             continue;
 
-        std::vector<BoardPosition> threatened_positions = 
-            get_legal_positions(_piece, false);
+        std::vector<BoardPosition> threatened_positions = get_legal_positions(_piece, false);
 
         for (auto &threatened_position : threatened_positions)
-        {
             if (threatened_position == piece.position)
                 return true;
-        }
     }
 
     // No threats
@@ -298,7 +273,7 @@ void Player::move_piece(PieceMove move)
     if (check_position(move.first->color, move.second) == Enemy_Piece)
         get_piece(move.second)->destroyed = true;
 
-    /* Players only get (well, most of the time only want) Queens */
+    // Players only get (well, most of the time only want) Queens - ADD dialogue for choosing a piece
     if (move.first->type == Pawn)
     {
         if (move.first->color == White && move.second.row == 0)
