@@ -8,10 +8,8 @@
 class AIPlayer : public Player
 {
 public:
-    AIPlayer(
-        BoardMetrics board_metrics, 
-        std::vector<Piece> *pieces, 
-        PieceColor color);
+    AIPlayer(BoardMetrics board_metrics, std::vector<Piece> *pieces, PieceColor color);
+    ~AIPlayer() override;
 
     void update(const std::vector<SDL_Event> events) override;
 private:
@@ -20,10 +18,14 @@ private:
     bool planning_phase = true;
     PieceMove planned_move;
     // Minimax
-    PieceColor maximizer_color, minimizer_color;
+    PieceColor maximizer_color, 
+        minimizer_color;
     // Benchmarking
-    int32_t bench_nodes_checked = 0, bench_nodes_cut = 0;
-    std::chrono::steady_clock::time_point bench_t1, bench_t2;
+    int32_t bench_nodes_checked = 0, 
+        bench_nodes_cut = 0;
+    std::chrono::steady_clock::time_point bench_t1, 
+        bench_t2;
+    float average_planning_time = 0.0f;
 
     /* 
         Minimax algorithm

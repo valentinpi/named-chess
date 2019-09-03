@@ -7,8 +7,7 @@ void log(const char *text)
 #endif
 }
 
-SDL_Texture *extract_from_texture(
-    SDL_Renderer *renderer, SDL_Texture *texture, SDL_Rect area)
+SDL_Texture *extract_from_texture(SDL_Renderer *renderer, SDL_Texture *texture, SDL_Rect area)
 {
     if (renderer == nullptr || texture == nullptr)
         return nullptr;
@@ -31,9 +30,7 @@ SDL_Texture *extract_from_texture(
     return result;
 }
 
-SDL_Texture *load_texture(
-    SDL_Renderer *renderer, 
-    const char *file_path)
+SDL_Texture *load_texture(SDL_Renderer *renderer, const char *file_path)
 {
     if (renderer == nullptr)
         return nullptr;
@@ -62,9 +59,8 @@ void log_sdl_error(const char *library, const char *text, const char *error)
 #endif
 }
 
-void render_rect(
-    SDL_Renderer *renderer,
-    SDL_Point rect_position, int width, int height, SDL_Color color, bool fill)
+void render_rect(SDL_Renderer *renderer,SDL_Point rect_position, int width, int height, SDL_Color color, 
+    bool fill)
 {
     if (renderer == nullptr)
         return;
@@ -86,8 +82,7 @@ void render_rect(
     SDL_SetRenderDrawColor(renderer, prev_r, prev_g, prev_b, prev_a);
 }
 
-void render_texture(
-    SDL_Renderer *renderer, SDL_Texture *texture, SDL_Point position)
+void render_texture(SDL_Renderer *renderer, SDL_Texture *texture, SDL_Point position)
 {
     if (renderer == nullptr || texture == nullptr)
         return;
@@ -100,8 +95,7 @@ void render_texture(
     SDL_RenderCopy(renderer, texture, nullptr, &dstrect);
 }
 
-void render_texture(
-    SDL_Renderer *renderer, SDL_Texture *texture, SDL_Rect area)
+void render_texture(SDL_Renderer *renderer, SDL_Texture *texture, SDL_Rect area)
 {
     if (renderer == nullptr || texture == nullptr)
         return;

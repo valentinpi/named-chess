@@ -1,9 +1,6 @@
 #include "HumanPlayer.hpp"
 
-HumanPlayer::HumanPlayer(
-    BoardMetrics board_metrics, 
-    std::vector<Piece> *pieces, 
-    PieceColor color)
+HumanPlayer::HumanPlayer(BoardMetrics board_metrics, std::vector<Piece> *pieces, PieceColor color)
 {
     this->board_metrics = board_metrics;
     this->pieces = pieces;
