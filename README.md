@@ -8,7 +8,7 @@ As of 03.06.2019, the project isn't actively developed by myself anymore. The co
 
 The current makefile only supports building on Windows using MinGW-w64 (the DLLs in the bin directory are from the i686-8.1.0-release-posix-dwarf-rt_v6-rev0 build). There's a Linux makefile too, which can be used by passing it to make using the -f flag.
 
-<h6>Download link of the Windows version for those who are only interested in playing the game</h6>
+<h5>Download link of the Windows version for those who are only interested in playing the game</h5>
 
 [Download through Google Drive](https://drive.google.com/file/d/19n1aBIcd6uEgoYQyR0xEYKLgi-3Jqoip/view?usp=sharing)
 
