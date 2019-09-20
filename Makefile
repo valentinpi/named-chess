@@ -6,10 +6,10 @@ TARGET   		:= named-chess
 # Build
 
 # Debug
-CXXFLAGS 		:= -g -O0 -std=c++17 -Wall
+#CXXFLAGS 		:= -g -O0 -std=c++17 -Wall
 #CXXFLAGS 		:= -g -O2 -std=c++17 -Wall
 # Release
-#CXXFLAGS 		:= -mwindows -O2 -std=c++17 -Wall
+CXXFLAGS 		:= -mwindows -O2 -std=c++17 -Wall
 # Remember to set the DEBUG macro in Utils.hpp according to the build
 
 # Dependencies

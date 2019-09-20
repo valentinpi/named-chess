@@ -4,13 +4,13 @@
 
 <h1>Announcement</h1>
 
-As of 03.06.2019, the project isn't actively developed by myself anymore. I decided to start learning new stuff, because I don't seem to get around my own architecture. The code just seems too nested for my taste. I gladly accept good contributions, if some are made. I might make some contributions if I have an idea or am willing to restructure the class hierarchy, if needed.
+As of 03.06.2019, the project isn't actively developed by myself anymore. The code just seems too nested for my taste. I gladly accept good contributions, if some are made. I might make some contributions if I have an idea.
 
 The current makefile only supports building on Windows using MinGW-w64 (the DLLs in the bin directory are from the i686-8.1.0-release-posix-dwarf-rt_v6-rev0 build). There's a Linux makefile too, which can be used by passing it to make using the -f flag.
 
-<h3>Download link for those who are only interested in playing the game</h3>
+<h7>Download link of the Windows version for those who are only interested in playing the game</h7>
 
-[Download through Google Drive](https://drive.google.com/file/d/1S45OLeN-Fm39xb0WZXfzDPJxdZjIgF9P/view?usp=sharing)
+[Download through Google Drive](https://drive.google.com/file/d/19n1aBIcd6uEgoYQyR0xEYKLgi-3Jqoip/view?usp=sharing)
 
 <h3>Controls</h3>
 
@@ -18,7 +18,7 @@ The current makefile only supports building on Windows using MinGW-w64 (the DLLs
 | ----------------- | ------------------------------- |
 | Left mouse button | Select, unselect and move piece |
 
-<h3>Not implemented</h3>
+<h3>Not Implemented</h3>
 
 - Special moves: Rochade, En passant
 - UI elements
@@ -30,27 +30,27 @@ The current makefile only supports building on Windows using MinGW-w64 (the DLLs
 - [Chess figures](https://opengameart.org/content/colorful-chess-pieces)  
 - [Movement rules source (in German)](https://www.brettspielnetz.de/spielregeln/schach.php)
 
-<h3>Code metrics</h3>
+<h3>Code Metrics</h3>
 
 <pre>
-D:\Dev\named-chess>cloc --exclude-dir=bin,dep,obj,res,README.md,README.html,"Improvised changelog.md","Improvised changelog.html" .
-      17 text files.
-      17 unique files.
-       6 files ignored.
+C:\Users\Valentin\Dev\named-chess>cloc --exclude-dir=.vscode,bin,misc,obj,res,.gitignore,README.md .
+      21 text files.
+      21 unique files.
+       5 files ignored.
 
-github.com/AlDanial/cloc v 1.76  T=0.50 s (30.0 files/s, 3520.0 lines/s)
+github.com/AlDanial/cloc v 1.82  T=0.50 s (40.0 files/s, 3374.0 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-C++                              8            209             32           1225
-C/C++ Header                     6             44             25            218
-make                             1              1              0              6
+C++                             10            211             34           1104
+C/C++ Header                     8             50             25            225
+make                             2             10              8             20
 -------------------------------------------------------------------------------
-SUM:                            15            254             57           1449
+SUM:                            20            271             67           1349
 -------------------------------------------------------------------------------
 </pre>
 
-<h3>Code Guide</h3>
+<h3>Small Code Guide</h3>
 
 - Use standardized C++
 - SDL libraries use raw pointers since it's a C library
