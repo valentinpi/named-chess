@@ -28,6 +28,8 @@ AIPlayer::~AIPlayer()
 
 void AIPlayer::update(const std::vector<SDL_Event> events)
 {
+    (void) events;
+
     if (!delay_finished)
     {
         auto t2 = std::chrono::steady_clock::now();
