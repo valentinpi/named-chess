@@ -21,16 +21,6 @@ Game::Game(int window_width, int window_height)
         log_sdl_error("SDL_image", "Initialization failed!", IMG_GetError());
         return;
     }
-    if (TTF_Init() != 0)
-    {
-        log_sdl_error("SDL_ttf", "Initialization failed!", TTF_GetError());
-        return;
-    }
-    if (SDLNet_Init() != 0)
-    {
-        log_sdl_error("SDL_net", "Initialization failed!", SDLNet_GetError());
-        return;
-    }
 
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 
@@ -148,8 +138,6 @@ Game::~Game()
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 
-    SDLNet_Quit();
-    TTF_Quit();
     IMG_Quit();
     SDL_Quit();
 }

@@ -2,13 +2,7 @@
 
 # Simple cross platform Chess game made using C++ and SDL
 
-<h1>Announcement</h1>
-
-As of 03.06.2019, the project isn't actively developed by myself anymore. The code just seems too nested for my taste. I gladly accept good contributions, if some are made. I might make some contributions if I have an idea.
-
-The current makefile only supports building on Windows using MinGW-w64 (the DLLs in the bin directory are from the i686-8.1.0-release-posix-dwarf-rt_v6-rev0 build). There's a Linux makefile too, which can be used by passing it to make using the -f flag.
-
-[Download link of the Windows version for those who are only interested in playing the game (Google Drive)](https://drive.google.com/file/d/19n1aBIcd6uEgoYQyR0xEYKLgi-3Jqoip/view?usp=sharing)
+[Download link of the Windows version for those who are only interested in playing the game (Google Drive)](https://drive.google.com/file/d/1aefaZnWF5-7VGSXPbMOYXdQwjZLKRsmR/view?usp=sharing)
 
 <h3>Controls</h3>
 
@@ -28,23 +22,23 @@ The current makefile only supports building on Windows using MinGW-w64 (the DLLs
 - [Chess figures](https://opengameart.org/content/colorful-chess-pieces)  
 - [Movement rules source (in German)](https://www.brettspielnetz.de/spielregeln/schach.php)
 
-<h3>Code Metrics</h3>
+<h3>Code Metrics (as of 23.09.2019)</h3>
 
 <pre>
-C:\Users\Valentin\Dev\named-chess>cloc --exclude-dir=.vscode,bin,misc,obj,res,.gitignore,README.md .
-      21 text files.
-      21 unique files.
-       5 files ignored.
+C:\Users\Valentin\Dev\named-chess>cloc --exclude-dir=.vscode,bin,misc,res,README.md .
+      18 text files.
+      18 unique files.
+       2 files ignored.
 
-github.com/AlDanial/cloc v 1.82  T=0.50 s (40.0 files/s, 3374.0 lines/s)
+github.com/AlDanial/cloc v 1.82  T=0.50 s (36.0 files/s, 3060.0 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-C++                             10            211             34           1104
-C/C++ Header                     8             50             25            225
-make                             2             10              8             20
+C++                              9            195             32            982
+C/C++ Header                     8             50             25            223
+CMake                            1              2              6             15
 -------------------------------------------------------------------------------
-SUM:                            20            271             67           1349
+SUM:                            18            247             63           1220
 -------------------------------------------------------------------------------
 </pre>
 
@@ -55,5 +49,9 @@ SUM:                            20            271             67           1349
 - Every line of code is limited to 80 characters
 - Extensively use comments, as long as they're necessary
 - Every file should end with an empty line
+
+<h3>Current state</h1>
+
+As of 03.06.2019, the project isn't actively developed by myself anymore. The code just seems too nested for my taste. I gladly accept good contributions, if some are made. I might make some contributions if I have an idea. For example, this project just switched to CMake!
 
 Von Valentin Pickel
