@@ -2,8 +2,6 @@
 
 # Simple cross platform Chess game made using C++ and SDL
 
-[Download link of the Windows version for those who are only interested in playing the game (Google Drive)](https://drive.google.com/file/d/1aefaZnWF5-7VGSXPbMOYXdQwjZLKRsmR/view?usp=sharing)
-
 <h3>Controls</h3>
 
 | Control           | Function                        |
@@ -54,4 +52,4 @@ SUM:                            18            247             63           1220
 
 As of 03.06.2019, the project isn't actively developed by myself anymore. The code just seems too nested for my taste. I gladly accept good contributions, if some are made. I might make some contributions if I have an idea. For example, this project just switched to CMake!
 
-Von Valentin Pickel
+Von valentinpi
